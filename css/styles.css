@@ -106,14 +106,26 @@ img{
     letter-spacing: 0.02em;
     color: var(--primary-text-color);
     text-decoration: none;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* .nav-link-current{
+.nav-link-current{
     position: relative;
-} */
+    
+}
 
 .nav-link-current::after{
-    text-decoration: underline;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    background-color: currentColor;
+    border: 2px solid currentColor;
+    border-radius: 4px;
 }
 
 .header-list{   
@@ -122,7 +134,6 @@ img{
 
 .header-list-item{
     display: flex;
-    
 }
 
 .header-list-item:not(:first-child),
@@ -140,6 +151,9 @@ img{
     letter-spacing: 0.02em;
     color: var(--secondary-text-color);
     text-decoration: none;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contact-envelope{
@@ -209,6 +223,9 @@ img{
     color: var(--negative-color);
     background-color: var(--accent-color);
     cursor: pointer;
+    transition-property: background-color, border-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-studio:hover,
@@ -224,14 +241,18 @@ img{
     width: 100%;
     height: 100%;
 
-    background-color: rgba(0, 0, 0, 0.5)
+    transition: opacity 2500s, cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .backdrop.is-hidden{
     visibility: hidden;
-    opacity: 0;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 2500s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 .modal{
     position: absolute;
@@ -259,6 +280,10 @@ img{
     border: 1px solid rgba(0, 0, 0, 0.1);
     
     background-color: var(--negative-color);
+
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-button:hover{
@@ -437,11 +462,16 @@ img{
     width: 44px;
     height: 44px;
     border-radius: 50%;
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:hover,
 .contact-link:focus{
     background-color: var(--accent-color);
+
 }
 
 .contact-link:hover .contact-link-icon,
@@ -469,25 +499,32 @@ img{
     margin-left: 30px;
 }
 
-
-
 .client-link{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 170px;
     height: 92px;
-
+    
     border: 1px solid var(--svg-icon);
     border-radius: 4px;
+    transition-property: border-color, fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover,
-.client-link:focus,
+.client-link:focus{
+    border-color: var(--accent-color);
+}
+
+
 .client-link:hover .client-link-icon,
 .client-link:focus .client-link-icon{
-    border-color: var(--accent-color);
     fill: var(--accent-color);
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link-icon{
@@ -515,6 +552,10 @@ img{
     color: var(--primary-text-color);
     background-color: var(--light-background);
     cursor: pointer;
+
+    transition-property: box-shadow, color, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-portfolio:hover,
@@ -558,29 +599,37 @@ img{
 .portfolio-link {
     display: block;
     text-decoration-line: none;
-    position: relative;
+
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* .portfolio-link-img{
+.portfolio-link-img {
     position: relative;
-} */
+    overflow: hidden;
+}
 
 .portfolio-link-overlay{
     position: absolute;
     width: 100%;
     height: 294px;
     padding: 63px 24px;
-    opacity: 0;
 
     font-size: 18px;
     line-height: 1.55;
     color: var(--negative-color);
     background-color: rgba(33, 150, 243, 0.9);
+
+    transform: translateY(100%);
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-link:hover .portfolio-link-overlay,
 .portfolio-link:focus .portfolio-link-overlay{
-    opacity: 1;
+    transform: translateY(0%);
 }
 
 /* .portfolio-link:hover::before,
@@ -657,6 +706,10 @@ img{
     color: var(--footer-opacity);
     text-decoration: none;
     font-style: normal;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-adress-contact:hover,
@@ -697,6 +750,9 @@ img{
     border-radius: 50%;
 
     background-color: rgba(255, 255, 255, 10%);
+    transition-property: background-color ;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .join-link:hover,
